@@ -1,10 +1,14 @@
 // import App from "next/app";
 import type { AppProps /* , AppContext */ } from 'next/app';
 import React from 'react';
+import wrapper from "store";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+
+const HelloDeveloper = ({ Component, pageProps }) => (
+  <>
+    <Component {...pageProps} />
+  </>
+);
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
@@ -18,4 +22,4 @@ function MyApp({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default MyApp;
+export default wrapper.withRedux(HelloDeveloper);
